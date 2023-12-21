@@ -240,6 +240,15 @@ def index():
     return render_template('/index.html',accuracy=accuracy,duration_data=duration_data,attack_types2=attack_types2,counts2=counts2,service_types=service_types, counts_service=counts_service,protocol_types=protocol_types,attack_types1=attack_types1,counts_by_protocol=counts_by_protocol, attack_types=attack_types, counts=counts,protocol_type_types=protocol_type_types, counts_protocol_type=counts_protocol_type)
 
 
+@app.route('/sw.js')
+def serve_sw():
+    return send_file('sw.js', mimetype='application/javascript')
+
+@app.route('/manifest.json')
+def serve_manifest():
+    return send_file('manifest.json', mimetype='application/manifest+json')
+
+
 """
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000,debug=True)
